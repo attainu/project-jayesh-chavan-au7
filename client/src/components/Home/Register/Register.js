@@ -9,18 +9,18 @@ const Register = function () {
             <div className="row">
                 <div className="col-sm-6 register__content">
                     <h1 className="display-4">
-                        Register As Voluteer
+                        Register As Volunteer
                     </h1>
                     <div className="register__ul">
                             <dl className="dl-horizontal">
-                                <dt>Description lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
-                                <dt>Description lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
-                                <dt>Description lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
-                                <dt>Description lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
+                                <dt>You can register as a volunteer</dt>
+                                <dd>You will get notifications of all the blood camps around you </dd>
+                                <dt>Register your blood type with us </dt>
+                                <dd>You will be notified when someone is in urgent need of you blood type.</dd>
+                                <dt>You can be a regular Donar</dt>
+                                <dd>You can be regular donar both for blood and money.</dd>
+                                <dt>Do some good</dt>
+                                <dd>This is your chance to do something good for the society.</dd>
                             </dl>
                             <button className="btn btn-primary">Register as Voluteer</button>
                     </div>
@@ -31,14 +31,14 @@ const Register = function () {
                     </h1>
                     <div className="register__ul">
                             <dl className="dl-horizontal">
-                                <dt>Description lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
-                                <dt>Description lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
-                                <dt>Description lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
-                                <dt>Description lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
+                                <dt>If you are Blood bank official</dt>
+                                <dd>You can register your bank with us.</dd>
+                                <dt>Benefits of our Network</dt>
+                                <dd>You will get access to our donar network.</dd>
+                                <dt>Host Blood camps</dt>
+                                <dd>You can notify donars through our network whenever you host a camp.</dd>
+                                <dt>Live updates</dt>
+                                <dd>You can share live updates about your bank and your needs.</dd>
                             </dl>
                             <button className="btn btn-primary">Register as Blood Bank</button>
                     </div>

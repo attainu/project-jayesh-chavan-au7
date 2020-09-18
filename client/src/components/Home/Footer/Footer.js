@@ -6,7 +6,7 @@ const Footer = function () {
         <div className="footer">
             <hr />
             <div className="row">
-                <div className="col-sm-6">
+                <div className="">
                     <div>
                         <span className="footer__brand">
                             <i class="fas fa-hands-helping"></i>
@@ -15,17 +15,15 @@ const Footer = function () {
                         <div className="footer__content">
                             <blockquote className="blockquote text-center">
                                 <p>
-                                    Enim ea consectetur consequat ea culpa ipsum
-                                    nisi dolor. Tempor culpa ullamco excepteur
-                                    cillum esse fugiat non et non laborum culpa
-                                    laboris labore in. Duis labore aliqua
-                                    laboris sint amet proident eu esse sint
-                                    velit do. Sint irure irure minim nisi ea
-                                    sunt eu magna id incididunt do consequat
-                                    sunt. Incididunt incididunt exercitation
-                                    duis nisi ipsum consequat et Lorem nulla
-                                    incididunt culpa deserunt irure. Voluptate
-                                    mollit excepteur anim et amet.
+                                Blood Line is an attempt to connect people with similar blood groups
+                                and encourage them to volunteer for blood donation in urgent need as
+                                we all know that blood banks could run out of blood of some rare blood
+                                groups. 
+                                <br/>
+                                <br/>
+                                With blood line userss can connect with each other through SMS with 
+                                genuine volenteers who are willing to donate on urgent notice and
+                                users with rare blood groups can store there in prior for future emergencies.  
                                 </p>
                                 <footer className="blockquote-footer">
                                     Blood_Line @ 2020
