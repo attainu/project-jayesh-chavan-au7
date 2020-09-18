@@ -1,0 +1,20 @@
+{
+  "name": "blood_line",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon --exec babel-node index.js"
+  },
+  "author": "Jayesh Chavan",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.5"
+  }
+}
