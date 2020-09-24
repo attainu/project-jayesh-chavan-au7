@@ -1,10 +1,10 @@
 import React from 'react'
-import Banner from '../../components/Home/Banner/Banner'
-import Footer from '../../components/Home/Footer/Footer'
-import Info from '../../components/Home/Info/Info'
-import Navbar from '../../components/Home/Navbar/Navbar'
-import Organise from '../../components/Home/Organise/Organise'
-import Register from '../../components/Home/Register/Register'
+import Banner from '../../components/Home/Banner'
+import Footer from '../../components/Home/Footer'
+import Info from '../../components/Home/Info'
+import Navbar from '../../components/Home/Navbar'
+import Organise from '../../components/Home/Organise'
+import Register from '../../components/Home/Register'
 
 class Home extends React.Component{
 

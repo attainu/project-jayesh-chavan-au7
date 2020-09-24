@@ -1,7 +1,11 @@
 import React from "react";
+// import { useHistory } from 'react-router-dom'
 import "./banner.scss";
 
 const Banner = function () {
+
+    // const history = useHistory()
+
     return (
         <div className="row banner">
             <div className="col-lg-6 banner__campaign">
@@ -14,7 +18,7 @@ const Banner = function () {
                         <li
                             data-target="#carouselExampleIndicators"
                             data-slide-to="0"
-                            class="active"
+                            className="active"
                         ></li>
                         <li
                             data-target="#carouselExampleIndicators"
@@ -28,7 +32,7 @@ const Banner = function () {
                                 className="d-block w-100"
                                 alt="..."
                             />
-                            <div class="carousel-caption d-none d-md-block">
+                            <div className="carousel-caption d-none d-md-block">
                                 <h5 className="display-5">Name of campaign</h5>
                                 <p className="lead">Venue : City, State</p>
                                 <button className="btn btn-primary">
@@ -36,13 +40,13 @@ const Banner = function () {
                                 </button>
                             </div>
                         </div>
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                             <img
                                 src={require("../../../utils/images/blood-donation3.jpg")}
                                 className="d-block w-100"
                                 alt="..."
                             />
-                            <div class="carousel-caption d-none d-md-block">
+                            <div className="carousel-caption d-none d-md-block">
                                 <h5 className="display-5">Name of campaign</h5>
                                 <p className="lead">Venue : City, State</p>
                                 <button className="btn btn-primary">

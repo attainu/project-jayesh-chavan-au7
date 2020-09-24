@@ -9,7 +9,7 @@ const Footer = function () {
                 <div className="">
                     <div>
                         <span className="footer__brand">
-                            <i class="fas fa-hands-helping"></i>
+                            <i className="fas fa-hands-helping"></i>
                             <span>Blood_Line</span>
                         </span>
                         <div className="footer__content">

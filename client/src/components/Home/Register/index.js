@@ -1,8 +1,11 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import './register.scss'
 
 const Register = function () {
     
+    const history = useHistory()
+
     return(
         <div className="register">
             <hr/>
@@ -22,7 +25,7 @@ const Register = function () {
                                 <dt>Do some good</dt>
                                 <dd>This is your chance to do something good for the society.</dd>
                             </dl>
-                            <button className="btn btn-primary">Register as Voluteer</button>
+                            <button className="btn btn-primary" onClick={() => history.push('/volunteer-signup')}  >Register as Voluteer</button>
                     </div>
                 </div>
                 <div className="col-sm-6 register__content">
@@ -40,7 +43,7 @@ const Register = function () {
                                 <dt>Live updates</dt>
                                 <dd>You can share live updates about your bank and your needs.</dd>
                             </dl>
-                            <button className="btn btn-primary">Register as Blood Bank</button>
+                            <button className="btn btn-primary" onClick={() => history.push('/bloodbank-signup')} >Register as Blood Bank</button>
                     </div>
                 </div>
             </div>

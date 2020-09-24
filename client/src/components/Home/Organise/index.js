@@ -13,7 +13,7 @@ const Organise = function () {
                             <ul>
                                 <li>If you want to organise</li>
                                 <li>a blood camp to help your</li>
-                                <li>community and to ssave lives</li>
+                                <li>community and to save lives</li>
                                 <li>You can use our network to do so</li>
                                 <li>We will advertise it on our Blood camp section</li>
                                 <button className="btn btn-primary">
