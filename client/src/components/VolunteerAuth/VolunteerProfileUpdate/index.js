@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import _ from "lodash";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from 'axios'
+import { connect } from 'react-redux'
+import { fetchVolunteerSuccess } from '../../../redux/volunteer/volunteerAction'
+import { httpRequest } from '../../../httpRequest'
 import DatePick from '../../shared/Datepicker'
 import "./volunteerProfileUpdate.scss";
 
@@ -193,39 +195,43 @@ const Update = function (props) {
 };
 
 const updateFormik = withFormik({
-    mapPropsToValues: () => {
+    mapPropsToValues: ({ volunteerData }) => {
+
+        let profile = volunteerData.profile
+
         return {
-            first_name: "",
-            last_name: "",
-            email: "",
-            city: "",
-            state: "State will automatically get selected",
-            pincode: "",
-            date_of_birth:"",
-            blood_group: "",
-            gender: "",
+            first_name: profile.first_name ||"",
+            last_name: profile.last_name || "",
+            email: profile.email || "",
+            city: profile.city || "",
+            state: profile.state || "State will automatically get selected",
+            pincode: profile.pincode || "",
+            date_of_birth: profile.date_of_birth || "",
+            blood_group: profile.blood_group || "",
+            gender: profile.gender || "",
         };
     },
     validationSchema: Yup.object().shape({
         email: Yup.string().email(),
     }),
     handleSubmit(values, formikBag) {
-        const { resetForm, setSubmitting } = formikBag;
-        console.log(values);
+        const { props, setSubmitting } = formikBag;
 
-        const updateUser = axios.create({
-            baseURL : "http://localhost:4000/",
-            withCredentials : true
-        })
-
-        updateUser.post('/volunteer/update-user', values)
+        httpRequest.post('/volunteer/update-user', values)
             .then(responce => {
                 console.log(responce);
-                resetForm();
+                props.updateProfile(responce.data)
+                props.navigate()
                 setSubmitting(false);
             })
 
     },
 })(Update);
 
-export default updateFormik;
+let mapDispatchToProps = dispatch => {
+    return{
+        updateProfile : updatedProfile => dispatch( fetchVolunteerSuccess(updatedProfile) )
+    }
+}
+
+export default connect(null,mapDispatchToProps)(updateFormik);

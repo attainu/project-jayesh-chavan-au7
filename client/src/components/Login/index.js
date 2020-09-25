@@ -1,7 +1,7 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import { httpRequest } from '../../httpRequest'
 import './login.scss'
 
 const Login = function ({ touched, errors, isSubmitting }) {
@@ -86,12 +86,7 @@ const LoginFormik = withFormik({
 
         const { props, resetForm, setErrors, setSubmitting} = formikBag
 
-        const voluteerSignup = axios.create({
-            baseURL:'http://localhost:4000/',
-            withCredentials: true
-        });
-
-        voluteerSignup
+        httpRequest
             .post("/volunteer/login", values)
             .then((responce) => {
                 if(responce.data === 'Invalid Credentials !!'){

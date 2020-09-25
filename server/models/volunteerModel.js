@@ -56,6 +56,9 @@ const VolunteerSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
+    status: {
+        type : Boolean
+    }
 });
 
 VolunteerSchema.methods.genrateAuthToken = function (){

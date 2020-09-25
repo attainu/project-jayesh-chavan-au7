@@ -1,7 +1,7 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from 'axios'
+import { httpRequest } from '../../../httpRequest'
 import "./volunteerSignup.scss";
 
 const VolunteerSignup = function (props) {
@@ -113,11 +113,7 @@ const VolunteerSignupFormik = withFormik({
 
         const { props, resetForm, setErrors, setSubmitting } = formikBag
 
-        const voluteerSignup = axios.create({
-            withCredentials : true
-        })
-
-        voluteerSignup.post('/volunteer/signup', values)
+        httpRequest.post('/volunteer/signup', values)
             .then(responce => {
                 if(responce.data === 'User already exit'){
                     setErrors({ email : 'User already exit' })
@@ -126,7 +122,7 @@ const VolunteerSignupFormik = withFormik({
                 }
                 resetForm()
                 setSubmitting(false)
-                props.history.push('/volunteer-dashboard')
+                props.history.push('/login')
             })
             .catch(error => {
                 console.log(error);

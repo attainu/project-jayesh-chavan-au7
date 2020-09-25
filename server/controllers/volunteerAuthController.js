@@ -4,12 +4,8 @@ class VolunteerAuthController {
     async signup(req, res, next) {
         try {
             const volunteer = new VolunteerModel(req.body);
-            const token = await volunteer.genrateAuthToken();
-            // req.header.Authorization = `Bearer ${token}`
-            res.cookie("auth", token, { maxage: 21600000 });
-            res.cookie("logedInAs", "volunteer", { maxage: 21600000 });
             await volunteer.save();
-            res.status(201).send(volunteer);
+            res.status(201).send('done');
         } catch (error) {
             if (error.name === "MongoError" && error.code === 11000) {
                 res.clearCookie("auth");

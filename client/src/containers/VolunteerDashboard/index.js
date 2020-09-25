@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
+import { connect } from "react-redux"
+import { httpRequest } from '../../httpRequest'
+import { getVolunteer } from '../../redux/volunteer/volunteerAction'
 import NavbarBack from "../../components/shared/NavbarBack";
 import Profile from "../../components/VolunteerAuth/VolunteerProfile";
 import Update from "../../components/VolunteerAuth/VolunteerProfileUpdate";
@@ -15,23 +17,11 @@ class VolunteerDashbaord extends React.Component {
     };
 
     componentDidMount() {
-        const getUser = axios.create({
-            baseURL: "http://localhost:4000/",
-            withCredentials: true,
-        });
-
-        getUser.get("/volunteer/get-user").then((responce) => {
-            console.log(responce.data);
-        });
+        this.props.getVolunteer()
     }
 
     clickHandler = () => {
-        const logout = axios.create({
-            baseURL: "http://localhost:4000/",
-            withCredentials: true,
-        });
-
-        logout.get("/volunteer/logout").then((responce) => {
+        httpRequest.get("/volunteer/logout").then((responce) => {
             if (responce.data === "done") {
                 this.props.history.push("/");
             }
@@ -39,17 +29,20 @@ class VolunteerDashbaord extends React.Component {
     };
 
     deleteHandler = () => {
-        const deleteUser = axios.create({
-            baseURL: "http://localhost:4000/",
-            withCredentials: true,
-        });
-
-        deleteUser.get("/volunteer/delete-user").then((responce) => {
+        httpRequest.get("/volunteer/delete-user").then((responce) => {
             if (responce.data === "done") {
                 this.props.history.push("/");
             }
         });
     };
+
+    navigateToProfile = () => {
+        this.setState({
+            Profile: 1,
+            Update: 0,
+            Delete: 0,
+        })
+    }
 
     render() {
         return (
@@ -103,9 +96,9 @@ class VolunteerDashbaord extends React.Component {
                     </li>
                 </ul>
                 {this.state.Profile ? (
-                    <Profile />
+                    <Profile volunteerData={this.props.volunteerData}/>
                 ) : this.state.Update ? (
-                    <Update />
+                    <Update volunteerData={this.props.volunteerData} navigate={this.navigateToProfile}/>
                 ) : (
                     <Delete deleteHandler={this.deleteHandler} />
                 )}
@@ -114,4 +107,16 @@ class VolunteerDashbaord extends React.Component {
     }
 }
 
-export default withRouter(VolunteerDashbaord);
+const mapStateToProps = state => {
+    return{
+        volunteerData : state.volunteer
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getVolunteer : () => dispatch( getVolunteer() )
+    }
+}
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(VolunteerDashbaord));

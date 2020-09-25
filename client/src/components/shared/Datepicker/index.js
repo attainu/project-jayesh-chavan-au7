@@ -14,15 +14,20 @@ const DatePick = function ({ ...props }) {
             dateFormat="dd/MM/yyyy"
             selected={(field.value && new Date(field.value)) || null}
             onChange={(val) => {
-                let day = val.getDay()
-                let month = val.getMonth()
-                let year = val.getFullYear()
-                var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                let formatDate =  `${day} ${months[month]} ${year}`
-                console.log(formatDate)
+                let formatDate = ''
+                if(val){
+                    let day = val.getDate()
+                    let month = val.getMonth()
+                    let year = val.getFullYear()
+                    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                    formatDate =  `${day} ${months[month]} ${year}`
+                    console.log(formatDate)
+                }
                 setFieldValue(field.name, formatDate);
-
             }}
+            isClearable
+            showFullMonthYearPicker
+            showYearDropdown
         />
     );
 };
