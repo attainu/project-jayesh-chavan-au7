@@ -7,9 +7,12 @@ import { fetchVolunteerSuccess } from '../../../redux/volunteer/volunteerAction'
 import { httpRequest } from '../../../httpRequest'
 import DatePick from '../../shared/Datepicker'
 import "./volunteerProfileUpdate.scss";
+import UploadFile from "../../shared/FileUpload";
 
 const Update = function (props) {
-    let { values, isSubmitting, touched, errors } = props;
+    let { volunteerData ,values, isSubmitting, touched, errors } = props;
+
+    let profile = volunteerData.profile
 
     const [ReRender, setReRender] = useState(false);
 
@@ -190,6 +193,12 @@ const Update = function (props) {
                     Update Profile
                 </button>
             </Form>
+            <div className="d-flex justify-content-center align-items-center update-photo">
+                <div>
+                    <h1 className="display-4">Upload profile photo</h1>
+                    <UploadFile fileName={profile._id} navigate={props.navigate}/>
+                </div>
+            </div>
         </div>
     );
 };

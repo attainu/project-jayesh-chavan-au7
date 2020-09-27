@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
+import { conn } from "./";
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
@@ -89,6 +90,6 @@ VolunteerSchema.pre('save', async function (next) {
     next()
 })
 
-const VolunteerModel = mongoose.model('Volunteer', VolunteerSchema)
+const VolunteerModel = conn.model('Volunteer', VolunteerSchema)
 
 module.exports = VolunteerModel

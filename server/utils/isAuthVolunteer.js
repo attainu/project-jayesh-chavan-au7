@@ -18,6 +18,7 @@ const isAuthVolunteer = async (req, res, next) => {
         req.volunteer = volunteer
         next()
     } catch (error) {
+        console.log('wrong');
         return res.status(401).redirect('/')
     }
 }

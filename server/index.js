@@ -1,30 +1,34 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from "dotenv";
+dotenv.config();
 
-import express from 'express'
-import cookieParser from 'cookie-parser'
-import cors from 'cors'
-import morgan from 'morgan'
+import express from "express";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import morgan from "morgan";
 
-import './models'
-import volunteerAuthRouter from './routes/volunteerAuth'
+import "./models";
+import volunteerAuthRouter from "./routes/volunteerAuth";
+import uploadFile from './routes/uploadFile'
 
 const app = express();
 
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
-app.use(morgan('dev'))
-app.use(express.urlencoded({ extended : true }))
-app.use(express.json())
-app.use(cookieParser())
 
-app.use('/volunteer', volunteerAuthRouter)
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
 
-app.get('/', (req,res) => {
-    res.status(404).send('Page Not Found')
-})
+app.use("/volunteer", volunteerAuthRouter);
+app.use("/", uploadFile)
 
-const PORT = process.env.PORT
+app.get("/", (req, res) => {
+    res.status(404).send("Page Not Found");
+});
+
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
     console.log(`Server is Running at port ${PORT}`);
-})
+});
