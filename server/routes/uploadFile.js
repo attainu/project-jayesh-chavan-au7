@@ -8,7 +8,18 @@ import { storage } from '../config/bucketStorage'
 const Router = express.Router()
 const upload = multer({ storage });
 
-Router.post('/profile-upload', isAuthVolunteer, upload.single("file"), async (req, res) => {
+Router.post('/profile-upload',isAuthVolunteer, async (req,res,next) => {
+    try {
+        if(!req.volunteer.profile_photo){  
+            next();
+        }
+        await gfs.remove({ filename : req.volunteer.profile_photo, root : 'uploads' })
+        next()    
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error)
+    }
+},upload.single("file"), async (req, res) => {
     try {
         const volunteer = await VolunteerModel.findByIdAndUpdate(
             req.volunteer._id,
