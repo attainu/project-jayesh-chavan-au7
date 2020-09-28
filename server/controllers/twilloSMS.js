@@ -9,10 +9,9 @@ client.notify.services(notifyServiceSid)
     toBinding: JSON.stringify([
       binding_type: 'sms', address: '** First phone number here **',
       binding_type: 'sms', address: '** Second phone number here **',
-      // This also works for iOS, Android, and FB Messenger.
-      // You can mix and match binding_type in the toBinding.
+
     ]),
-    body: 'You just sent your first message with the Passthrough API!'
+    body: 'Someone needs blood in your area'
   })
   .then(notification => console.log(notification.sid))
   .catch(error => console.log(error));
