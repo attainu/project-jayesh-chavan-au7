@@ -14,7 +14,7 @@ const Navbar = function () {
             </a>
             <div className="navbar__btn">
                 <button className="btn bg-primary" onClick={() => history.push('/login')}>Login</button>
-                <button className="btn bg-primary">Donate</button>
+                <button className="btn bg-primary" onClick={() => history.push('/donate')}>Donate</button>
             </div>
         </nav>
     )

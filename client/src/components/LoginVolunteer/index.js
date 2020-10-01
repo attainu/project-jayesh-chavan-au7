@@ -2,14 +2,14 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { httpRequest } from '../../httpRequest'
-import './login.scss'
+import './loginvolunteer.scss'
 
-const Login = function ({ touched, errors, isSubmitting }) {
+const LoginVolunteer = function ({ touched, errors, isSubmitting }) {
     return (
         <div className="container v-login">
             <Form>
                 <div className="form-group">
-                    <label htmlFor="emailInput">Email Address</label>
+                    <label htmlFor="emailVolunteer">Email Address</label>
                     <small
                         className={
                             touched.email && errors.email
@@ -26,7 +26,7 @@ const Login = function ({ touched, errors, isSubmitting }) {
                                 ? "form-control is-invalid"
                                 : "form-control"
                         }
-                        id="emailInput"
+                        id="emailVolunteer"
                         name="email"
                         aria-describedby="email-help"
                     />
@@ -35,7 +35,7 @@ const Login = function ({ touched, errors, isSubmitting }) {
                     </small>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="passwordInput">Password</label>
+                    <label htmlFor="passwordVolunteer">Password</label>
                     <small
                         className={
                             touched.password && errors.password
@@ -52,7 +52,7 @@ const Login = function ({ touched, errors, isSubmitting }) {
                                 ? "form-control is-invalid"
                                 : "form-control"
                         }
-                        id="passwordInput"
+                        id="passwordVolunteer"
                         name="password"
                     />
                     <small
@@ -64,14 +64,14 @@ const Login = function ({ touched, errors, isSubmitting }) {
                     </small>
                 </div>
                 <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
-                    Register
+                    Login As Volunteer
                 </button>
             </Form>
         </div>
     );
 };
 
-const LoginFormik = withFormik({
+const LoginFormikVolunteer = withFormik({
     mapPropsToValues: () => {
         return {
             email: "",
@@ -102,6 +102,6 @@ const LoginFormik = withFormik({
                 console.log(error);
             });
     }
-})(Login);
+})(LoginVolunteer);
 
-export default LoginFormik;
+export default LoginFormikVolunteer;

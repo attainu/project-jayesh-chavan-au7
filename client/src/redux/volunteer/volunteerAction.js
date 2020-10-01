@@ -24,7 +24,7 @@ export const fetchVolunteerFailure = error => {
 export const getVolunteer = () => {
 
     return dispatch => {
-        dispatch(fetchVolunteerRequest)
+        dispatch(fetchVolunteerRequest())
         httpRequest.get('/volunteer/get-user')
             .then(responce => {
                 const profileData = responce.data

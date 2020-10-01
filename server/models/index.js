@@ -2,8 +2,10 @@ import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
 import Grid from 'gridfs-stream'
+import VolunteerSchema from './volunteerModel'
+import BloodBankSchema from './bloodBankModel'
 
-export const conn = mongoose.createConnection(
+const conn = mongoose.createConnection(
     process.env.MONGODB_ATLAS_URL || process.env.MONGODB_LOCAL_URL,
     {
         useUnifiedTopology: true,
@@ -18,6 +20,12 @@ export const conn = mongoose.createConnection(
         console.log(err);
     }
 );
+
+conn.model('Volunteer',VolunteerSchema)
+conn.model('BloodBank',BloodBankSchema)
+
+export const VolunteerModel = conn.models.Volunteer
+export const BloodBankModel = conn.models.BloodBank
 
 export let gfs;
 

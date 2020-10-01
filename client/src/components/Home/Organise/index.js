@@ -1,7 +1,11 @@
 import React from "react";
+import { useHistory } from 'react-router-dom'
 import "./organise.scss";
 
 const Organise = function () {
+
+    const history = useHistory()
+
     return (
         <div className="organise">
             <hr />
@@ -34,7 +38,7 @@ const Organise = function () {
                                 <li>They have every right to live just like us</li>
                                 <li>and its our moral duty towards them </li>
                                 {/* <li>-- You can contribute in saving a life just by donating a few bucks</li> */}
-                                <button className="btn btn-primary">
+                                <button className="btn btn-primary" onClick={() => history.push('/donate')}>
                                     Donate
                                 </button>
                             </ul>

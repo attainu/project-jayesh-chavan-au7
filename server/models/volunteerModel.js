@@ -1,7 +1,6 @@
 import dotenv from 'dotenv'
 dotenv.config()
 import mongoose from 'mongoose'
-import { conn } from "./";
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
@@ -68,20 +67,6 @@ VolunteerSchema.methods.genrateAuthToken = function (){
     return token
 }
 
-VolunteerSchema.statics.findByCredentials = async function (email, password){
-    const volunteer = await VolunteerModel.findOne( { email } )
-    if(!volunteer){
-        console.log('Wrong email');
-        throw new Error('Unable to login')
-    }
-    const isMatch = await bcrypt.compare(password, volunteer.password)
-    if(!isMatch){
-        console.log('Wrong password');
-        throw new Error('Unable to login')
-    } 
-    return volunteer    
-}
-
 VolunteerSchema.pre('save', async function (next) {
     const volunteer = this
     if (volunteer.isModified('password')) {
@@ -90,6 +75,4 @@ VolunteerSchema.pre('save', async function (next) {
     next()
 })
 
-const VolunteerModel = conn.model('Volunteer', VolunteerSchema)
-
-module.exports = VolunteerModel
+module.exports = VolunteerSchema

@@ -9,6 +9,7 @@ import morgan from "morgan";
 
 import "./models";
 import volunteerAuthRouter from "./routes/volunteerAuth";
+import bloodBankAuthRouter from "./routes/bloodBankAuth"
 import uploadFile from './routes/uploadFile'
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use("/volunteer", volunteerAuthRouter);
+app.use("/bloodbank", bloodBankAuthRouter)
 app.use("/", uploadFile)
 
 app.get("/", (req, res) => {

@@ -4,5 +4,6 @@ export default {
     VOLUNTEER_DASHBOARD : '/volunteer-dashboard',
     BLOOD_BANK_REGISTER : '/bloodbank-signup',
     BLODD_BANK_DASHBOARD : '/bloodbank-dashboard',
-    LOGIN : '/login'
+    LOGIN : '/login',
+    Donate : '/donate'
 }

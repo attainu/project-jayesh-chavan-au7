@@ -1,29 +1,29 @@
-import { FETCH_VOLUNTEER_REQUEST, FETCH_VOLUNTEER_SUCCESS, FETCH_VOLUNTEER_FAILURE } from './volunteerType'
+import { FETCH_BLOOD_BANK_REQUEST, FETCH_BLOOD_BANK_SUCCESS, FETCH_BLOOD_BANK_FAILURE } from './bloodBankType'
 
 const initialState = {
     loading : false,
-    profile : {},
+    bloodBank : {},
     error : ''
 }
 
-const volunteerReducer = (state = initialState, action) => {
+const bloodBankReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case FETCH_VOLUNTEER_REQUEST:
+        case FETCH_BLOOD_BANK_REQUEST:
             return{
                 ...state,
                 loading : true
             }
-        case FETCH_VOLUNTEER_SUCCESS:
+        case FETCH_BLOOD_BANK_SUCCESS:
             return{
                 ...state,
                 loading : false,
-                profile : {...action.payload}
+                bloodBank : {...action.payload}
             }
-        case FETCH_VOLUNTEER_FAILURE:
+        case FETCH_BLOOD_BANK_FAILURE:
             return{
                 ...state,
-                loading: false,
+                loading : false,
                 error : action.payload
             }
         default:
@@ -31,4 +31,4 @@ const volunteerReducer = (state = initialState, action) => {
     }
 }
 
-export default volunteerReducer
+export default bloodBankReducer

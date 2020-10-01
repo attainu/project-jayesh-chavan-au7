@@ -1,6 +1,6 @@
 import express from 'express'
 import multer from "multer";
-import VolunteerModel from '../models/volunteerModel'
+import { VolunteerModel } from '../models'
 import isAuthVolunteer from '../utils/isAuthVolunteer'
 import { gfs } from "../models";
 import { storage } from '../config/bucketStorage'

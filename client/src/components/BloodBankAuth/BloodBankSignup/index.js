@@ -1,7 +1,7 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from 'axios'
+import { httpRequest } from '../../../httpRequest'
 import "./bloodBankSignup.scss";
 
 const BloodBankSignup = function (props) {
@@ -14,7 +14,7 @@ const BloodBankSignup = function (props) {
             <div className="row">
                 <div className="col-sm-6 d-flex align-items-center">
                     <img
-                        src={require("../../../utils/images/blood_bank.jpg")}
+                        src={require("../../../utils/images/blood_bank_r.jpg")}
                         alt="..."
                         className="d-block w-100"
                     />
@@ -113,11 +113,7 @@ const BloodBankSignupFormik = withFormik({
 
         const { props, resetForm, setErrors, setSubmitting } = formikBag
 
-        const voluteerSignup = axios.create({
-            withCredentials : true
-        })
-
-        voluteerSignup.post('/volunteer/signup', values)
+        httpRequest.post('/bloodbank/signup', values)
             .then(responce => {
                 if(responce.data === 'User already exit'){
                     setErrors({ email : 'User already exit' })
@@ -126,7 +122,7 @@ const BloodBankSignupFormik = withFormik({
                 }
                 resetForm()
                 setSubmitting(false)
-                props.history.push('/')
+                props.history.push('/login')
             })
             .catch(error => {
                 console.log(error);

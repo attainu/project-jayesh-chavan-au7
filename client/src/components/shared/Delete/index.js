@@ -1,5 +1,5 @@
 import React from "react";
-import "./volunteerProfileDelete.scss";
+import "./delete.scss";
 
 const Delete = function ({ deleteHandler }) {
     return (

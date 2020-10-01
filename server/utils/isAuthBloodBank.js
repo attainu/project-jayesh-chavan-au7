@@ -1,7 +1,8 @@
 require('dotenv').config()
 import jwt from 'jsonwebtoken'
-import { VolunteerModel } from '../models'
-const isAuthVolunteer = async (req, res, next) => {
+import { BloodBankModel } from '../models'
+
+const isAuthBloodBank = async (req, res, next) => {
     try {
         // let token = req.header.Authorization.replace('Bearer', "").trim()
         let token = req.cookies.auth
@@ -9,13 +10,13 @@ const isAuthVolunteer = async (req, res, next) => {
             return res.status(200).send('please Authenticate')
         }
         const decoded = jwt.verify(token, process.env.SECRET_KEY)
-        let volunteer = await VolunteerModel.findById( { _id : decoded._id} )
-        if(!volunteer){
+        let bloodBank = await BloodBankModel.findById( { _id : decoded._id} )
+        if(!bloodBank){
             return res.status(200).send('please Authenticate')
         }
         req.token = token
-        volunteer.password = undefined
-        req.volunteer = volunteer
+        bloodBank.password = undefined
+        req.bloodBank = bloodBank
         next()
     } catch (error) {
         console.log('cookie expire',error);
@@ -23,4 +24,4 @@ const isAuthVolunteer = async (req, res, next) => {
     }
 }
 
-module.exports = isAuthVolunteer
+module.exports = isAuthBloodBank

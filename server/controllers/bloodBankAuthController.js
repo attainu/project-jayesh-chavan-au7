@@ -1,46 +1,47 @@
 import bcrypt from 'bcryptjs'
-import { VolunteerModel } from '../models'
+import { BloodBankModel } from '../models'
 
 const findByCredentials = async function (email, password){
-    const volunteer = await VolunteerModel.findOne( { email } )
-    if(!volunteer){
+    const bloodBank = await BloodBankModel.findOne( { email } )
+    if(!bloodBank){
         console.log('Wrong email');
         throw new Error('Unable to login')
     }
-    const isMatch = await bcrypt.compare(password, volunteer.password)
+    const isMatch = await bcrypt.compare(password, bloodBank.password)
     if(!isMatch){
         console.log('Wrong password');
         throw new Error('Unable to login')
     } 
-    return volunteer    
+    return bloodBank    
 }
 
-class VolunteerAuthController {
+class BloodBankAuthController {
     async signup(req, res, next) {
         try {
-            const volunteer = new VolunteerModel(req.body);
-            await volunteer.save();
+            const bloodBank = new BloodBankModel(req.body);
+            await bloodBank.save();
             res.status(201).send('done');
         } catch (error) {
             if (error.name === "MongoError" && error.code === 11000) {
                 res.clearCookie("auth");
                 return res.status(200).send("User already exit");
             }
+            console.log(error);
             res.status(500).send(error);
         }
     }
 
     async login(req, res, next) {
         try {
-            const volunteer = await findByCredentials(
+            const bloodBank = await findByCredentials(
                 req.body.email,
                 req.body.password
             );
-            const token = await volunteer.genrateAuthToken();
+            const token = await bloodBank.genrateAuthToken();
             // req.header.Authorization = `Bearer ${token}`
             res.cookie("auth", token, { maxage: 21600000 });
-            res.cookie("logedInAs", "volunteer", { maxage: 21600000 });
-            res.status(200).send(volunteer);
+            res.cookie("logedInAs", "bloodBank", { maxage: 21600000 });
+            res.status(200).send(bloodBank);
         } catch (error) {
             res.status(200).send("Invalid Credentials !!");
         }
@@ -57,32 +58,32 @@ class VolunteerAuthController {
         }
     }
 
-    async getUser(req, res, next) {
+    async getBank(req, res, next) {
         try {
-            res.status(200).send(req.volunteer);
+            res.status(200).send(req.bloodBank);
         } catch (error) {
             res.status(500).send(error);
         }
     }
 
-    async updateUser(req, res, next) {
+    async updateBank(req, res, next) {
         try {
-            const volunteer = await VolunteerModel.findByIdAndUpdate(
-                req.volunteer._id,
+            const bloodBank = await BloodBankModel.findByIdAndUpdate(
+                req.bloodBank._id,
                 req.body,
                 { new: true }
             );
-            res.status(200).send(volunteer)
+            res.status(200).send(bloodBank)
         } catch (error) {
             console.log(error);
             res.status(500).send(error)
         }
     }
 
-    async deleteUser(req,res,next) {
+    async deleteBank(req,res,next) {
         try {
-            await VolunteerModel.findByIdAndDelete(
-                req.volunteer._id
+            await BloodBankModel.findByIdAndDelete(
+                req.bloodBank._id
             )
             res.clearCookie("auth");
             res.clearCookie("logedInAs");
@@ -93,4 +94,4 @@ class VolunteerAuthController {
     }
 }
 
-module.exports = new VolunteerAuthController();
+module.exports = new BloodBankAuthController();

@@ -1,30 +1,29 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux"
+import React from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { httpRequest } from '../../httpRequest'
-import { getVolunteer } from '../../redux/volunteer/volunteerAction'
+import { getBloodBank } from '../../redux/bloodBank/bloodBankAction'
 import NavbarBack from "../../components/shared/NavbarBack";
-import Profile from "../../components/VolunteerAuth/VolunteerProfile";
-import Update from "../../components/VolunteerAuth/VolunteerProfileUpdate";
-import Delete from "../../components/shared/Delete";
-import Verify from "../../components/VolunteerAuth/volunteerVerify";
+import BloodBank from '../../components/BloodBankAuth/BloodBank'
+import BloodBankUpdate from '../../components/BloodBankAuth/BloodBankUpdate'
+import BloodBankVerify from '../../components/BloodBankAuth/BloodBankVerify'
+import Delete from '../../components/shared/Delete'
 import Loader from '../../components/shared/Loader'
-import "./volunteerDashboard.scss";
 
-class VolunteerDashbaord extends React.Component {
+class BloodBankDashboard extends React.Component{
     state = {
-        Profile: 1,
-        Update: 0,
-        Delete: 0,
-        verify:0
-    };
-
-    componentDidMount() {
-        this.props.getVolunteer()
+        bloodBank : 1,
+        Update : 0,
+        Verify : 0,
+        Delete : 0
     }
 
+    componentDidMount(){
+        this.props.getBloodBank()
+    }
+    
     clickHandler = () => {
-        httpRequest.get("/volunteer/logout").then((responce) => {
+        httpRequest.get("/bloodbank/logout").then((responce) => {
             if (responce.data === "done") {
                 this.props.history.push("/");
             }
@@ -32,25 +31,27 @@ class VolunteerDashbaord extends React.Component {
     };
 
     deleteHandler = () => {
-        httpRequest.get("/volunteer/delete-user").then((responce) => {
+        httpRequest.get("/bloodbank/delete-bank").then((responce) => {
             if (responce.data === "done") {
                 this.props.history.push("/");
             }
         });
     };
 
-    navigateToProfile = () => {
+    navigateToBloodBank = () => {
         this.setState({
-            Profile: 1,
-            Update: 0,
-            Delete: 0,
-            verify: 0
+            bloodBank : 1,
+            Update : 0,
+            Verify : 0,
+            Delete : 0
         })
     }
+    
+    render(){
+        
 
-    render() {
-        return (
-            !this.props.volunteerData.loading ? (
+        return(
+            !this.props.bloodBankData.loading ? (
             <div className="container">
                 <NavbarBack
                     clickHandler={this.clickHandler}
@@ -62,14 +63,14 @@ class VolunteerDashbaord extends React.Component {
                             className="btn btn-primary"
                             onClick={() =>
                                 this.setState({
-                                    Profile: 1,
+                                    bloodBank: 1,
                                     Update: 0,
                                     Delete: 0,
                                     verify: 0
                                 })
                             }
                         >
-                            Profile
+                            Blood Bank
                         </button>
                     </li>
                     <li className="nav-item">
@@ -77,7 +78,7 @@ class VolunteerDashbaord extends React.Component {
                             className="btn btn-primary"
                             onClick={() =>
                                 this.setState({
-                                    Profile: 0,
+                                    bloodBank: 0,
                                     Update: 1,
                                     Delete: 0,
                                     verify: 0
@@ -92,7 +93,7 @@ class VolunteerDashbaord extends React.Component {
                             className="btn btn-primary"
                             onClick={() =>
                                 this.setState({
-                                    Profile: 0,
+                                    bloodBank: 0,
                                     Update: 0,
                                     Delete: 0,
                                     verify: 1
@@ -107,49 +108,48 @@ class VolunteerDashbaord extends React.Component {
                             className="btn btn-primary"
                             onClick={() =>
                                 this.setState({
-                                    Profile: 0,
+                                    bloodBank: 0,
                                     Update: 0,
                                     Delete: 1,
                                     verify: 0
                                 })
                             }
                         >
-                            Delete Profile
+                            Delete 
                         </button>
                     </li>
                 </ul>
-                {this.state.Profile ? (
-                    <Profile volunteerData={this.props.volunteerData}/>
+                {this.state.bloodBank ? (
+                    <BloodBank bloodBankData={this.props.bloodBankData}/>
                 ) : this.state.Update ? (
-                    <Update volunteerData={this.props.volunteerData} navigate={this.navigateToProfile}/>
+                    <BloodBankUpdate bloodBankData={this.props.bloodBankData} navigate={this.navigateToBloodBank}/>
                 ) : (
-                    this.state.verify  ? <Verify volunteerData={this.props.volunteerData}/> :
+                    this.state.verify  ? <BloodBankVerify bloodBankData={this.props.bloodBankData} /> :
                     <Delete deleteHandler={this.deleteHandler} />
                 )}
-            </div> 
-            ) : (
-                <div className="container">
+            </div>
+        ) : (
+            <div className="container">
                 <NavbarBack 
                     clickHandler={this.clickHandler}
                     buttonText={"LogOut"}
                 />
                 <Loader/>
             </div>
-            )
-        );
+        ))
     }
 }
 
 const mapStateToProps = state => {
     return{
-        volunteerData : state.volunteer
+        bloodBankData : state.bloodBank
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getVolunteer : () => dispatch( getVolunteer() )
+        getBloodBank : () => dispatch( getBloodBank() ) 
     }
 }
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(VolunteerDashbaord));
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(BloodBankDashboard))
