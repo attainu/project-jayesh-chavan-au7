@@ -1,0 +1,34 @@
+.bloodBank {
+    min-height: 400px;
+    .card {
+        max-width: 540px;
+        .card-img {
+            height: 100%;
+        }
+        .card-text {
+            margin: 0px;
+        }
+    }
+    .status-form {
+        padding: 20px;
+        .checkbox{
+            padding-left: 25px;
+            .custom-control-label{
+                transform : scale(2);
+                margin : 10px auto;
+            }
+        }
+        .btn {
+            font-size: 15px;
+            padding: 5px;
+            width: 100px;
+        }
+        .stock{
+            .btn {
+                font-size: 15px;
+                padding: 5px;
+                width: 150px;
+            }   
+        }
+    }
+}

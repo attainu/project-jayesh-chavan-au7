@@ -1,0 +1,21 @@
+.organise{
+    .organise__content{
+        h1{
+            text-align: center;
+        }
+        .organise__text{
+            padding: 5px 30px;
+            ul{
+                text-align: center;
+                list-style-type: none;
+                padding: 0px;
+            }
+            .btn{
+                margin: 20px 0px 0px 0px;
+                width: 250px;
+                height: 40px;
+                font-weight: bold;
+            }
+        }
+    }
+}

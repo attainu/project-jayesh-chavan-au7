@@ -1,0 +1,19 @@
+.footer{
+    hr{
+        background-color: gray;
+        margin: 30px 0px;
+    }
+    .footer__brand{
+        font-size: 30px ;
+        letter-spacing: 1px;
+        font-family: 'Lobster';
+        .fa-hands-helping{
+            color: #DC143C;
+            margin: 5px;
+            font-size: 30px;
+        }
+    }
+    .footer__content{
+        padding: 10px;
+    }
+}
