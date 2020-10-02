@@ -17,7 +17,7 @@ const Profile = function ({ volunteerData }) {
                             <img
                                 src={
                                     profile.profile_photo ?
-                                    `http://localhost:4000/image/${profile.profile_photo}` :
+                                    `${profile.profile_photo.firebaseUrl}` :
                                     !profile.gender ? require("../../../utils/images/Men_icon.jpg") :
                                     profile.gender === "Male" ? require("../../../utils/images/Men_icon.jpg") :
                                     require("../../../utils/images/Women_icon.jpg")

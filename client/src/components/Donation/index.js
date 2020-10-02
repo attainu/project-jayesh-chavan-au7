@@ -15,21 +15,21 @@ const Donation = function () {
                 <div className="col-sm-6 d-flex align-items-center">
                     <div className="content">
                         <p className="lead">
-                            Ut cillum incididunt veniam minim do sit. Deserunt
-                            esse enim cupidatat voluptate nisi est occaecat
-                            dolor nostrud exercitation esse. Nisi elit nulla non
-                            anim et tempor eu eu pariatur elit id nisi elit
-                            nisi. Eu laborum anim aute ut. Nostrud non do anim
-                            fugiat cillum eiusmod quis.
+                            As Buddha Said "Thousands of candles can be 
+                            lighted fron a single candle, and the life of the
+                            life of the candle will not be shortened". No act of 
+                            kindness, no matter how small is ever wasted. <br/> So be 
+                            the change you want to see in the world, your small donation
+                            will go a long way and most importantly "Accha Lagta Hai".
                         </p>
                         <blockquote className="blockquote">
                             <p className="mb-0">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Integer posuere erat a ante.
+                            The simplest acts of kindness are by far more powerful then a 
+                            thousand heads bowing in prayer.
                             </p>
                             <footer className="blockquote-footer">
-                                Someone famous in{" "}
-                                <cite title="Source Title">Source Title</cite>
+                                Mahatma Gandhi{" "}
+                                
                             </footer>
                         </blockquote>
                         <button className="btn btn-info">Donate</button>

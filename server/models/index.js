@@ -1,7 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
-import Grid from 'gridfs-stream'
 import VolunteerSchema from './volunteerModel'
 import BloodBankSchema from './bloodBankModel'
 
@@ -26,10 +25,3 @@ conn.model('BloodBank',BloodBankSchema)
 
 export const VolunteerModel = conn.models.Volunteer
 export const BloodBankModel = conn.models.BloodBank
-
-export let gfs;
-
-conn.once('open', () => {
-    gfs = Grid(conn.db, mongoose.mongo)
-    gfs.collection('uploads')
-})
