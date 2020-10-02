@@ -53,8 +53,14 @@ const VolunteerSchema = new mongoose.Schema({
         trim: true,
     },
     profile_photo: {
-        type: String,
-        trim: true,
+        fileName : {
+            type: String,
+            trim: true,
+        },
+        firebaseUrl : {
+            type: String,
+            trim: true,
+        }
     },
     status: {
         type : Boolean
