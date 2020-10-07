@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Footer from '../../components/Home/Footer'
 import Organise from '../../components/Organise'
 import NavbarBack from '../../components/shared/NavbarBack'
 
@@ -19,7 +18,6 @@ class OrganiseContainer extends React.Component{
                 />
                 <h1 className="display-3 text-center">Register Camp</h1>
                 <Organise bloodBankCamp={this.props.camp}/>
-                <Footer/>
             </div>
         )
     }

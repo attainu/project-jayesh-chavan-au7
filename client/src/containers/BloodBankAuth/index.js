@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import NavbarBack from "../../components/shared/NavbarBack";
-import Footer from "../../components/Home/Footer"
 import BloodBankSignup from "../../components/BloodBankAuth/BloodBankSignup";
 
 class BloodBankAuth extends React.Component {
@@ -21,7 +20,6 @@ class BloodBankAuth extends React.Component {
                     }
                 />
                 <BloodBankSignup history={this.props.history} />
-                <Footer/>
             </div>
         );
     }
