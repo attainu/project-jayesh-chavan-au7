@@ -1,6 +1,5 @@
 import React from "react";
 import Donation from "../../components/Donation";
-import Footer from "../../components/Home/Footer";
 import NavbarBack from "../../components/shared/NavbarBack";
 
 class DonateContainer extends React.Component {
@@ -20,7 +19,6 @@ class DonateContainer extends React.Component {
                     }
                 />
                 <Donation/>
-                <Footer/>
             </div>
         );
     }

@@ -4,7 +4,6 @@ import NavbarBack from '../../components/shared/NavbarBack'
 import LoginFormikBloodBank from '../../components/LoginBloodBank'
 import LoginFormikVolunteer from '../../components/LoginVolunteer'
 import './login.scss'
-import Footer from '../../components/Home/Footer'
 
 class LoginContainer extends React.Component{
 
@@ -34,7 +33,6 @@ class LoginContainer extends React.Component{
                         </div>
                     </div>
                 </div>
-                <Footer/>
             </div>
         )
     }

@@ -9,7 +9,6 @@ import BloodBankUpdate from '../../components/BloodBankAuth/BloodBankUpdate'
 import BloodBankVerify from '../../components/BloodBankAuth/BloodBankVerify'
 import Delete from '../../components/shared/Delete'
 import Loader from '../../components/shared/Loader'
-import Footer from '../../components/Home/Footer'
 
 class BloodBankDashboard extends React.Component{
     state = {
@@ -128,7 +127,6 @@ class BloodBankDashboard extends React.Component{
                     this.state.verify  ? <BloodBankVerify bloodBankData={this.props.bloodBankData} /> :
                     <Delete deleteHandler={this.deleteHandler} />
                 )}
-                <Footer/>
             </div>
         ) : (
             <div className="container">
