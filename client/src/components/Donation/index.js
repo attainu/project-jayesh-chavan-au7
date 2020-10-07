@@ -129,9 +129,7 @@ const Donation = function () {
                                 </footer>
                             </blockquote>
                             <StripeCheckout
-                                stripeKey={
-                                    process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
-                                }
+                                stripeKey="pk_test_51HYyhZLkZFQwuTDV7DZfJkkDcN8W5t3n2jjIkd1GYzGBsQUp9KLNwcnHZ5Fnga6keDL2Oar4XoP1nWXFQSdYX7OT00vEqFYpRR"
                                 token={makePayment}
                                 currency="INR"
                                 amount={product.price * 100}
