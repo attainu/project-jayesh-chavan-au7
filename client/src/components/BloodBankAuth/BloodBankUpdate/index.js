@@ -76,14 +76,14 @@ const UpdateBank = function (props) {
                         </small>
                     </div>
                     <div className="form-group col-md-6">
-                    <label htmlFor="lastAdd">Last Line Of Address</label>
+                    <label htmlFor="lastAdd">Second Line Of Address</label>
                         <Field
                             className="form-control"
                             id="lastAdd"
-                            name="last_line_add"
+                            name="second_line_add"
                         />
                         <small className="form-text text-muted">
-                            Enter last line of address
+                            Enter last second of address
                         </small>
                     </div>
                 </div>
@@ -126,9 +126,9 @@ const UpdateBank = function (props) {
                             id="Category"
                             name="category"
                         >
-                            <option value="private">Private</option>
-                            <option value="charity">Charity</option>
-                            <option value="gov">Goverment</option>
+                            <option value="Private">Private</option>
+                            <option value="Charity">Charity</option>
+                            <option value="Gov">Goverment</option>
                         </Field>
                     </div>
                 </div>
@@ -156,7 +156,7 @@ const updateBloodBankFormik = withFormik({
             state: bloodBank.state || "State will automatically get selected",
             category: bloodBank.category || "",
             first_line_add: bloodBank.first_line_add || "",
-            last_line_add: bloodBank.first_line_add || "",
+            second_line_add: bloodBank.second_line_add || ""
         };
     },
     validationSchema: Yup.object().shape({

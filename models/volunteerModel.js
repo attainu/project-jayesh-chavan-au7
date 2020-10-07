@@ -3,6 +3,7 @@ dotenv.config()
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import mongoosePeginate from 'mongoose-paginate-v2'
 
 const VolunteerSchema = new mongoose.Schema({
     email: {
@@ -80,5 +81,7 @@ VolunteerSchema.pre('save', async function (next) {
     }
     next()
 })
+
+VolunteerSchema.plugin(mongoosePeginate)
 
 module.exports = VolunteerSchema

@@ -1,10 +1,11 @@
 import React from "react";
-// import { useHistory } from 'react-router-dom'
+import _ from "lodash";
+import { useHistory } from "react-router-dom";
+import { WEB_URL } from "../../../config";
 import "./banner.scss";
 
-const Banner = function () {
-
-    // const history = useHistory()
+const Banner = function ({ camp }) {
+    const history = useHistory();
 
     return (
         <div className="row banner">
@@ -15,45 +16,47 @@ const Banner = function () {
                     data-ride="carousel"
                 >
                     <ol className="carousel-indicators">
-                        <li
-                            data-target="#carouselExampleIndicators"
-                            data-slide-to="0"
-                            className="active"
-                        ></li>
-                        <li
-                            data-target="#carouselExampleIndicators"
-                            data-slide-to="1"
-                        ></li>
+                        {
+                            _.map(camp, (campEvent, idx) =>
+                            <li
+                                data-target="#carouselExampleIndicators"
+                                data-slide-to={idx}
+                                className={idx === 0 ? "active" : ""}
+                                key={idx}
+                            ></li>
+                        )}
                     </ol>
                     <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <img
-                                src={require("../../../utils/images/blood-donation1.jpg")}
-                                className="d-block w-100"
-                                alt="..."
-                            />
-                            <div className="carousel-caption d-none d-md-block">
-                                <h5 className="display-5">Name of campaign</h5>
-                                <p className="lead">Venue : City, State</p>
-                                <button className="btn btn-primary">
-                                    Know more
-                                </button>
+                        {_.map(camp, (campEvent, idx) =>
+                            <div
+                                className={
+                                    idx === 0
+                                        ? "carousel-item active"
+                                        : "carousel-item"
+                                }
+                                key={idx}
+                            >
+                                <img
+                                    src={campEvent.poster.firebaseUrl}
+                                    className="d-block w-100"
+                                    alt="..."
+                                />
+                                <div className="carousel-caption d-none d-md-block">
+                                    <h5 className="display-5">
+                                        {campEvent.organiser}
+                                    </h5>
+                                    <p className="lead">
+                                        Venue : {campEvent.address}
+                                    </p>
+                                    <p className="lead">
+                                        {campEvent.city}, {campEvent.state}
+                                    </p>
+                                    <p className="lead">
+                                        Date : {campEvent.date}, Time : {campEvent.time}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="carousel-item">
-                            <img
-                                src={require("../../../utils/images/blood-donation3.jpg")}
-                                className="d-block w-100"
-                                alt="..."
-                            />
-                            <div className="carousel-caption d-none d-md-block">
-                                <h5 className="display-5">Name of campaign</h5>
-                                <p className="lead">Venue : City, State</p>
-                                <button className="btn btn-primary">
-                                    Know more
-                                </button>
-                            </div>
-                        </div>
+                        )}
                     </div>
                     <a
                         className="carousel-control-prev"
@@ -82,17 +85,25 @@ const Banner = function () {
                 </div>
             </div>
             <div className="col-lg-6 banner__para">
-                <blockquote className='blockquote'>
-                    <h1 className="display-3">
-                        BRING A LIFE BACK TO POWER.
-                    </h1>
-                    <footer className='blockquote-footer'>
+                <blockquote className="blockquote">
+                    <h1 className="display-3">BRING A LIFE BACK TO POWER.</h1>
+                    <footer className="blockquote-footer">
                         Make blood donation your responsibility
                     </footer>
                 </blockquote>
                 <div className="banner__navigation">
-                    <button className="btn btn-primary">Find Doner Nearby</button>
-                    <button className="btn btn-primary">Find Blood Bank Nearby</button>
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => history.push(WEB_URL.VolunteerSearch)}
+                    >
+                        Find Doner Nearby
+                    </button>
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => history.push(WEB_URL.BloodBankSearch)}
+                    >
+                        Find Blood Bank Nearby
+                    </button>
                 </div>
             </div>
         </div>

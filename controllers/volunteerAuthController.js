@@ -91,6 +91,20 @@ class VolunteerAuthController {
             res.status(500).send(error)
         }
     }
+
+    async findAll (req,res,next) {
+        try {
+            const { page, city } = req.query;
+            const options = {
+                page : parseInt(page,10),
+                limit : 10
+            }
+            const volunteers = await VolunteerModel.paginate({ city },options)
+            res.status(200).json(volunteers)
+        } catch (error) {
+            res.status(500).send(error.message)
+        }
+    }
 }
 
 module.exports = new VolunteerAuthController();

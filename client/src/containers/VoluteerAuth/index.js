@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import Footer from "../../components/Home/Footer";
 import NavbarBack from "../../components/shared/NavbarBack";
 import VolunteerSignup from "../../components/VolunteerAuth/VolunteerSignup";
 
@@ -20,6 +21,7 @@ class VolunteerAuth extends React.Component {
                     }
                 />
                 <VolunteerSignup history={this.props.history} />
+                <Footer/>
             </div>
         );
     }
