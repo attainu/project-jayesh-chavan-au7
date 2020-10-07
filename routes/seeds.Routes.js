@@ -1,7 +1,7 @@
 import express from 'express'
 import { VolunteerModel, BloodBankModel } from '../models'
-import volunteerSeeds from '../seeds/volunteerSeed.json'
-import bloodBankSeeds from '../seeds/bloodBankSeed.json'
+// import volunteerSeeds from '../seeds/volunteerSeed.json'
+// import bloodBankSeeds from '../seeds/bloodBankSeed.json'
 
 const Router = express.Router()
 

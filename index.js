@@ -26,8 +26,8 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === "production"){
     app.use(express.static('./client/build'))
 }else{
-    // app.use(morgan("dev"));
-    // app.use('/seed', seedsRouter)
+    app.use(morgan("dev"));
+    app.use('/seed', seedsRouter)
 }
 
 app.use("/", homeAssetsRouter);
