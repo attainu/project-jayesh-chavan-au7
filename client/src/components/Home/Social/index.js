@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from 'react-router-dom'
 import "./organise.scss";
 
-const Organise = function () {
+const Social = function () {
 
     const history = useHistory()
 
@@ -20,7 +20,7 @@ const Organise = function () {
                                 <li>community and to save lives</li>
                                 <li>You can use our network to do so</li>
                                 <li>We will advertise it on our Blood camp section</li>
-                                <button className="btn btn-primary">
+                                <button className="btn btn-primary" onClick={() => history.push('/organise')}>
                                     Organise
                                 </button>
                             </ul>
@@ -37,7 +37,6 @@ const Organise = function () {
                                 <li>They cannot afford to buy blood from blood banks</li>
                                 <li>They have every right to live just like us</li>
                                 <li>and its our moral duty towards them </li>
-                                {/* <li>-- You can contribute in saving a life just by donating a few bucks</li> */}
                                 <button className="btn btn-primary" onClick={() => history.push('/donate')}>
                                     Donate
                                 </button>
@@ -46,8 +45,9 @@ const Organise = function () {
                     </div>
                 </div>
             </div>
+            <hr />
         </div>
     );
 };
 
-export default Organise;
+export default Social;

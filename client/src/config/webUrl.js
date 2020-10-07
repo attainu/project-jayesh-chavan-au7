@@ -5,5 +5,8 @@ export default {
     BLOOD_BANK_REGISTER : '/bloodbank-signup',
     BLODD_BANK_DASHBOARD : '/bloodbank-dashboard',
     LOGIN : '/login',
-    Donate : '/donate'
+    Donate : '/donate',
+    BloodBankSearch : '/bloodbank-search',
+    VolunteerSearch : '/volunteer-search',
+    Organise : '/organise'
 }

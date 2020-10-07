@@ -3,6 +3,7 @@ dotenv.config()
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import mongoosePeginate from 'mongoose-paginate-v2'
 
 const BloodBankSchema = new mongoose.Schema({
     name:{
@@ -65,5 +66,7 @@ BloodBankSchema.pre('save', async function (next) {
     }
     next()
 })
+
+BloodBankSchema.plugin(mongoosePeginate)
 
 module.exports = BloodBankSchema
