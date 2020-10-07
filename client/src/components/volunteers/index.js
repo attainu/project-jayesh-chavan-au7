@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from 'react-redux'
+import _ from 'lodash'
 import { getAllVolunteer } from '../../redux/volunteerSearch/volunteerSearchAction'
 import Loader from "../shared/Loader";
-import _ from 'lodash'
+
 class Volunteers extends React.Component{
     state = {
         currentPage : 1,
