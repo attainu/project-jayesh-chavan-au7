@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import Footer from '../../components/Home/Footer'
 import NavbarBack from '../../components/shared/NavbarBack'
-import Volunteers from '../../components/Volunteers'
+import Volunteers from '../../components/volunteers'
 
 class VolunteerSearch extends React.Component{
 
