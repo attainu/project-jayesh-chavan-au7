@@ -92,6 +92,20 @@ class BloodBankAuthController {
             res.status(500).send(error)
         }
     }
+
+    async findAll (req,res,next) {
+        try {
+            const { page, city } = req.query;
+            const options = {
+                page : parseInt(page,10),
+                limit : 10
+            }
+            const bloodBanks = await BloodBankModel.paginate({ city },options)
+            res.status(200).json(bloodBanks)
+        } catch (error) {
+            res.status(500).send(error.message)
+        }
+    }
 }
 
 module.exports = new BloodBankAuthController();

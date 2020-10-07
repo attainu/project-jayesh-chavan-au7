@@ -10,6 +10,7 @@ import Delete from "../../components/shared/Delete";
 import Verify from "../../components/VolunteerAuth/volunteerVerify";
 import Loader from '../../components/shared/Loader'
 import "./volunteerDashboard.scss";
+import Footer from "../../components/Home/Footer";
 
 class VolunteerDashbaord extends React.Component {
     state = {
@@ -126,6 +127,7 @@ class VolunteerDashbaord extends React.Component {
                     this.state.verify  ? <Verify volunteerData={this.props.volunteerData}/> :
                     <Delete deleteHandler={this.deleteHandler} />
                 )}
+                <Footer/>
             </div> 
             ) : (
                 <div className="container">

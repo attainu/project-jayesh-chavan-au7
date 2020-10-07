@@ -5,6 +5,9 @@ import VolunteerDashboardRoute from "./VolunteerDashboard.Routes";
 import BloodBankDashboardRoute from './BloodBankDashboard.Routes'
 import LoginRoute from "./Login.Routes";
 import DonationRoute from './Donation.Routes'
+import BloodBankSearch from './BloodBankSearch.Routes'
+import VolunteerSearchRoute from './VolunteerSearch.Routes'
+import OrganiseRoute from './Organise.Routes'
 
 export default [
     ...HomeRoute,
@@ -13,5 +16,8 @@ export default [
     ...VolunteerDashboardRoute,
     ...BloodBankDashboardRoute,
     ...LoginRoute,
-    ...DonationRoute
+    ...DonationRoute,
+    ...BloodBankSearch,
+    ...VolunteerSearchRoute,
+    ...OrganiseRoute
 ];

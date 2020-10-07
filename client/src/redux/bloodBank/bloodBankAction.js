@@ -1,7 +1,7 @@
 import { httpRequest } from '../../httpRequest'
 import { FETCH_BLOOD_BANK_REQUEST, FETCH_BLOOD_BANK_SUCCESS, FETCH_BLOOD_BANK_FAILURE } from './bloodBankType'
 
-export const fetchBloodBankrRequest = () => {
+export const fetchBloodBankRequest = () => {
     return {
         type : FETCH_BLOOD_BANK_REQUEST
     }
@@ -24,7 +24,7 @@ export const fetchBloodBankFailure = error => {
 export const getBloodBank = () => {
 
     return dispatch => {
-        dispatch(fetchBloodBankrRequest())
+        dispatch(fetchBloodBankRequest())
         httpRequest.get('/bloodbank/get-bank')
             .then(responce => {
                 const bloodbankData = responce.data
