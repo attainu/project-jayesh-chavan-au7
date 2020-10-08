@@ -14,6 +14,7 @@ import bloodBankAuthRouter from "./routes/bloodBankAuth.Routes"
 import oraginseRouter from './routes/organise.Routes'
 import seedsRouter from "./routes/seeds.Routes"
 import stripeRouter from "./routes/stripe.Routes"
+import emergencyNotificationRoutes from './routes/emergencyNotification.Routes'
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use("/volunteer", volunteerAuthRouter);
 app.use("/bloodbank", bloodBankAuthRouter);
 app.use("/organise", oraginseRouter)
 app.use("/stripe", stripeRouter)
+app.use("/emergency", emergencyNotificationRoutes)
 
 app.get("/", (req, res) => {
     res.status(404).send("Page Not Found");
