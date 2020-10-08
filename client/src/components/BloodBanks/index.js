@@ -1,18 +1,21 @@
 import React from "react";
 import { connect } from 'react-redux'
+import Modal from 'react-modal'
 import { getAllBloodBank } from '../../redux/bloodBankSearch/bloodBankSearchAction'
 import Loader from "../shared/Loader";
 import _ from 'lodash'
 import "./bloodbanks.scss"
 class BloodBanks extends React.Component{
     state = {
+        modalIsOpen : true,
         currentPage : 1,
         options : {hasNextPage : false, hasPrevPage : false},
-        city : "Pune",
+        city : "",
         docs : null
     }
     
-    componentDidMount(){
+    submitHandler = async () => {   
+        await this.setState({ modalIsOpen : false })
         this.props.getAllBloodBank(this.state.currentPage,this.state.city)
     }
 
@@ -46,13 +49,43 @@ class BloodBanks extends React.Component{
         }
     }
 
+    modalStyle = {
+        content: {
+            width: "700px",
+            height: "300px",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
+        },
+    };
+
+    onchangeHandler = (event) => {
+        let city = event.target.value
+        this.setState({ city })
+    }
+    
     render(){
 
         return (
-            this.props.allBloodBanks.Loading ? (
+            this.props.allBloodBanks.Loading || this.state.modalIsOpen ? (
                 <div className="container-fluid banksearch">
                     <h1 className="display-3 text-center">Registered BloodBanks</h1>
                     <Loader />
+                    <Modal isOpen={this.state.modalIsOpen} style={this.modalStyle}>
+                        <h1 className="display-4 text-center text-danger">Geocoding not working !!</h1>
+                        <p className="text-muted text-center">please enter city name manually</p>
+                        <div className="input-group mb-3">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    onChange={(e) => this.onchangeHandler(e)}
+                                />
+                        </div>
+                        <button className="btn btn-success" onClick={this.submitHandler}>
+                                Search
+                        </button>
+                    </Modal>
                 </div>
             ) : (
                 <div className="container-fluid banksearch">

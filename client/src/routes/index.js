@@ -8,6 +8,7 @@ import DonationRoute from './Donation.Routes'
 import BloodBankSearch from './BloodBankSearch.Routes'
 import VolunteerSearchRoute from './VolunteerSearch.Routes'
 import OrganiseRoute from './Organise.Routes'
+import EmergencyNotificationRoutes from './EmergencyNotification.Routes'
 
 export default [
     ...HomeRoute,
@@ -19,5 +20,6 @@ export default [
     ...DonationRoute,
     ...BloodBankSearch,
     ...VolunteerSearchRoute,
-    ...OrganiseRoute
+    ...OrganiseRoute,
+    ...EmergencyNotificationRoutes
 ];

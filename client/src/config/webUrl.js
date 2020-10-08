@@ -8,5 +8,6 @@ export default {
     Donate : '/donate',
     BloodBankSearch : '/bloodbank-search',
     VolunteerSearch : '/volunteer-search',
-    Organise : '/organise'
+    Organise : '/organise',
+    EmergencyNotification : '/emergency'
 }
