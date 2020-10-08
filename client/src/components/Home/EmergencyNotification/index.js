@@ -132,7 +132,7 @@ const EmergencyNotification = function () {
                             </i>
                         }
                     />
-                <h1 className="display-3 text-center">Emergency Notifiacion</h1>
+                <h1 className="display-3 text-center">Emergency Notification</h1>
                 <p className="lead text-center">
                     if you are in urgent need of blood you can request our registerd
                     volunteers in your city for help by sending sms notification
