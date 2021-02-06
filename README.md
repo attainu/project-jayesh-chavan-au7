@@ -2,7 +2,7 @@
 
 ![Blood_Line](https://firebasestorage.googleapis.com/v0/b/blood-line-291504.appspot.com/o/Blood_Line.png?alt=media&token=990d720c-5d0a-4546-b0eb-9f512ef0a214)
 
-## Setting up server
+## Setting up server [development mode]
 
 -   install mongodb and start server
 -   npm install
