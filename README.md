@@ -4,14 +4,14 @@
 
 ## Setting up server
 
-* install mongodb and start server
-* npm install
-* npm run devStart
+-   install mongodb and start server
+-   npm install
+-   npm run devStart
 
 ## Setting up React client
 
-* npm install
-* npm start
+-   npm install
+-   npm start
 
 ## Production URL
 
@@ -19,13 +19,13 @@
 
 ## | Technologies Used
 
-* Backend : Node js with express js framework
-* Database : MongoDB with mongoose ODM
-* Client : React with create-react-app and Redux
-* Firebase : For storing image and sending OTP
-* Stripe : As payment gateway
-* Emailjs : For sending email
-* Fast2Sms : For sending sms notification
+-   Backend : Node js with express js framework
+-   Database : MongoDB with mongoose ODM
+-   Client : React with create-react-app and Redux
+-   Firebase : For storing image and sending OTP
+-   Stripe : As payment gateway
+-   Emailjs : For sending email
+-   Fast2Sms : For sending sms notification
 
 ## About
 
@@ -37,39 +37,39 @@
 
 ### Home
 
-* -- request GET 'https://blood-line.herokuapp.com/assets'
+-   -- request GET 'https://blood-line.herokuapp.com/assets'
 
 ### Volunteer
 
-* -- request POST 'https://blood-line.herokuapp.com/volunteer/signup'
-* -- request POST 'https://blood-line.herokuapp.com/volunteer/login'
-* -- request GET 'https://blood-line.herokuapp.com/volunteer/logout'
-* -- request GET 'https://blood-line.herokuapp.com/volunteer/get-user'
-* -- request POST 'https://blood-line.herokuapp.com/volunteer/update-user'
-* -- request GET 'https://blood-line.herokuapp.com/volunteer/delete-user'
-* -- request GET 'https://blood-line.herokuapp.com/volunteer/find-all'
+-   -- request POST 'https://blood-line.herokuapp.com/volunteer/signup'
+-   -- request POST 'https://blood-line.herokuapp.com/volunteer/login'
+-   -- request GET 'https://blood-line.herokuapp.com/volunteer/logout'
+-   -- request GET 'https://blood-line.herokuapp.com/volunteer/get-user'
+-   -- request POST 'https://blood-line.herokuapp.com/volunteer/update-user'
+-   -- request GET 'https://blood-line.herokuapp.com/volunteer/delete-user'
+-   -- request GET 'https://blood-line.herokuapp.com/volunteer/find-all'
 
 ### BloodBank
 
-* -- request POST 'https://blood-line.herokuapp.com/bloodbank/signup'
-* -- request POST 'https://blood-line.herokuapp.com/bloodbank/login'
-* -- request GET 'https://blood-line.herokuapp.com/bloodbank/logout'
-* -- request GET 'https://blood-line.herokuapp.com/bloodbank/get-bank'
-* -- request POST 'https://blood-line.herokuapp.com/bloodbank/update-bank'
-* -- request GET 'https://blood-line.herokuapp.com/bloodbank/delete-bank'
-* -- request GET 'https://blood-line.herokuapp.com/bloodbank/find-all'
+-   -- request POST 'https://blood-line.herokuapp.com/bloodbank/signup'
+-   -- request POST 'https://blood-line.herokuapp.com/bloodbank/login'
+-   -- request GET 'https://blood-line.herokuapp.com/bloodbank/logout'
+-   -- request GET 'https://blood-line.herokuapp.com/bloodbank/get-bank'
+-   -- request POST 'https://blood-line.herokuapp.com/bloodbank/update-bank'
+-   -- request GET 'https://blood-line.herokuapp.com/bloodbank/delete-bank'
+-   -- request GET 'https://blood-line.herokuapp.com/bloodbank/find-all'
 
 ### Organise Camp
 
-* -- request POST 'https://blood-line.herokuapp.com/organise/create'
-* -- request POST 'https://blood-line.herokuapp.com/organise/update'
-* -- request GET 'https://blood-line.herokuapp.com/organise/findall-camp'
-* -- request POST 'https://blood-line.herokuapp.com/organise/camp-notification'
+-   -- request POST 'https://blood-line.herokuapp.com/organise/create'
+-   -- request POST 'https://blood-line.herokuapp.com/organise/update'
+-   -- request GET 'https://blood-line.herokuapp.com/organise/findall-camp'
+-   -- request POST 'https://blood-line.herokuapp.com/organise/camp-notification'
 
 ### Stripe
 
-* -- request POST 'https://blood-line.herokuapp.com/stripe/donate'
+-   -- request POST 'https://blood-line.herokuapp.com/stripe/donate'
 
 ### Emergency Notification
 
-* -- request POST 'https://blood-line.herokuapp.com/emergency/notification'
+-   -- request POST 'https://blood-line.herokuapp.com/emergency/notification'
